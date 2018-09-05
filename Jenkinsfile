@@ -1,24 +1,15 @@
-node {
-  try {
-    stage('Checkout') {
-      checkout scm
+pipeline {
+    agent {
+        docker {
+            image 'node:8'
+            args '-u root -v /root/.m2:/root/.m2'
+        }
     }
-    stage('Environment') {
-      sh 'git --version'
-      echo "Branch: ${env.BRANCH_NAME}"
-      sh 'docker -v'
-      sh 'printenv'
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
     }
-    stage('Deploy'){
-      if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t my-node-app --no-cache .'
-        //sh 'docker tag react-app localhost:5000/react-app'
-        sh 'docker push localhost:49161/'
-        //sh 'docker rmi -f react-app localhost:5000/react-app'
-      }
-    }
-  }
-  catch (err) {
-    throw err
-  }
 }

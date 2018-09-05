@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Minhas Cervejas</title>
+</head>
+<body>
+    <h1>Minhas Cervejas</h1>
+
+    <% if (beers.length > 0) { %>
+
+        <%
+            for(var i=0; i < beers.length; i++) {
+        %>
+            <%= beers[i].rotulo %><br>
+        <% } %>
+    <% } else {%>
+        <h5>nenhuma cerveja cadastrada</h5>    
+    <%} %>
+    
+</body>
+</html>

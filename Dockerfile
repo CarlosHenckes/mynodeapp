@@ -1,19 +1,19 @@
+#Define image we want to build from
 FROM node:8
 
-# Create app directory
-WORKDIR /app
+#Setup the directory structure for our web app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
+#Since argon comes with nodejs and npm we need to make sure rest of our dependencies are installed ( express, etc)
+COPY package.json /usr/src/app/
 RUN npm install
-# If you are building your code for production
-# RUN npm install --only=production
 
-# Bundle app source
-COPY . .
+#Copy all our app source code sitting locally inside the docker image
+COPY . /usr/src/app
 
+#What port we want to expost
 EXPOSE 8087
-CMD [ "npm", "start" ]
+
+#Next we need to start our server so we can reach it (i.e. server.js)
+CMD ["node", "server" ]

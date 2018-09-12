@@ -16,4 +16,4 @@ COPY . /usr/src/app
 EXPOSE 8087
 
 #Next we need to start our server so we can reach it (i.e. server.js)
-CMD ["node", "server" ]
+CMD ["npm", "start" ]

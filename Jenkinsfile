@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh "docker build -t misnodeapp" .
                 echo 'Deploying....'
             }
         }

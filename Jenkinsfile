@@ -1,10 +1,18 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image: 'node:8'
+            args: '-p 49161:8087'
+        }
+    }
+    enviroment {
+        CI = 'true'
+    }
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "npm install"
             }
         }
         stage('Test') {
@@ -15,7 +23,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh "docker image ls"
             }
         }
     }

@@ -8,8 +8,8 @@ var expressSession = require('express-session');
 var flash = require('express-flash');
 
 // Constants
-const PORT = 8087;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT || 8087;
+//const HOST = '0.0.0.0';
 
 // App
 const app = express();
@@ -44,5 +44,5 @@ load('models')
 .then('routes')
 .into(app);
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(PORT);
+console.log(`Running on port:${PORT}`);

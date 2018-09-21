@@ -8,7 +8,7 @@ node {
    stage('Remove container if already running'){
 
     //Remove maven-build-container if it exists
-           sh " docker rm -f mynodeapp"
+           //sh "docker rm -f mynodeapp"
 
    }
 

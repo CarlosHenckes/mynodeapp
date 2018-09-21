@@ -16,7 +16,7 @@ node {
 
    stage('Install') {
         echo 'Installing to run application as daemon...'
-        sh "npm install"
+        //sh "npm install"
     }
 
     stage('Deploy Spring Boot Application') {

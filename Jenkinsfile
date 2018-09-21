@@ -1,5 +1,7 @@
 node {
-
+    environment {
+        CI = 'true' 
+    }
    stage('Clone Repository') {
         // Get some code from a GitHub repository
         checkout scm

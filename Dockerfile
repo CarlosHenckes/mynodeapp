@@ -1,5 +1,5 @@
 FROM node:8
-WORKDIR /app
+WORKDIR /
 COPY package.json /usr/src/docker/
 RUN npm install
 COPY . /usr/src/docker/

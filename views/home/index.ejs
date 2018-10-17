@@ -21,8 +21,12 @@
         .logo {
             position: relative; margin-top: 80px;
         }
+        .smcont {
+            margin-top:85px;
+        }
         @media (min-width: 768px) { 
             .logo{position: relative; margin-top: 42px;}
+            .smcont {margin-top:45px;}
         }
     </style>
 </head>
@@ -39,7 +43,7 @@
         </div>
     </nav>
 
-    <div class="container" style="margin-top:45px;">
+    <div class="container sm-cont">
 
         <% if (beers.length > 0) { %>
         <div class="card-deck mt-4">

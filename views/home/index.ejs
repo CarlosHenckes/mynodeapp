@@ -18,8 +18,11 @@
         .brand-color {
             color: Green;
         }
-        .nocss {
-            display: none;
+        .logo {
+            position: relative;
+        }
+        @media (min-width: 768px) { 
+            .logo{position: relative; margin-top: 42px;}
         }
     </style>
 </head>
@@ -28,7 +31,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand">
-            <img src="logo.png" class="mr-4" style="position: relative; margin-top: 42px;" width="90"><span class="brand-color">Beering</span></a>
+            <img src="logo.png" class="mr-4 logo" width="90"><span class="brand-color">Beering</span></a>
             <form class="form-inline mt-3">
                 <input class="form-control mr-sm-2" type="search" placeholder="pesquisar rótulo..." aria-label="rótulo...">
                 <button class="btn btn-outline-success my-sm-0" type="submit">Pesquisar</button>
